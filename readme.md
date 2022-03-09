@@ -1,9 +1,9 @@
-#Ensicaen note parser
+# Ensicaen note parser
 
 Ce projet a pour but de parser la page des notes de l'application de note de l'ENSICAEN.
 
 
-##Utilisation
+## Utilisation
 
 1.Compiler l'application avec :
 ```
