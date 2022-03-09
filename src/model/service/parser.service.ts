@@ -13,7 +13,7 @@ export class ParserService {
     static async getAuthCookie(login: string, password: string): Promise<any> {
         const browser = await puppeteer.launch({args: ['--no-sandbox']});
         const page = await browser.newPage();
-        await page.goto('https://scolarite.ensicaen.fr/login?ReturnUrl=%2FNote', {waitUntil: 'networkidle0'});
+        await page.goto('https://scolarite.ensicaen.fr/login', {waitUntil: 'networkidle0'});
 
         // @ts-ignore
         await (await page.$('input[name="login"]')).type(login);
@@ -33,10 +33,22 @@ export class ParserService {
         return cookies[0];
     }
 
-    static async getNotes(cookie: any): Promise<UE[]> {
+    static async getNotes(token: string): Promise<UE[]> {
+
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.setCookie(cookie);
+        await page.setCookie({
+            name: ParserService.LOGIN_COOKIE_NAME,
+            value: token,
+            domain: 'scolarite.ensicaen.fr',
+            path: '/',
+            expires: -1,
+            httpOnly: true,
+            secure: true,
+            sameParty: false,
+            sourceScheme: 'Secure',
+            sourcePort: 443
+        });
         await page.goto('https://scolarite.ensicaen.fr/note', {waitUntil: 'networkidle0'});
         const uesDOM = await page.$$('.panel-group > .panel:not(.tile)');
 

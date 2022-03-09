@@ -1,6 +1,7 @@
 import {NoteController} from "./controller/note-controller";
 import express,{Express} from "express";
 import config from './config.json'
+import {AuthController} from "./controller/auth-controller";
 class App {
 
 
@@ -18,7 +19,9 @@ class App {
 
     initController() {
         console.log('CONTROLLER INIT');
+        new AuthController(this.app).attach();
         new NoteController(this.app).attach();
+
     }
 
 
