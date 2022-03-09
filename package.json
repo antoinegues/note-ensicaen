@@ -6,7 +6,7 @@
     "scripts": {
         "compil" : "tsc",
         "server": "node dist/index.js",
-        "dev": "ts-node-dev ."
+        "dev": "ts-node-dev src/index.ts"
     },
     "keywords": [],
     "author": "Antoine Gues",
