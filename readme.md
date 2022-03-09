@@ -21,7 +21,7 @@ curl -d "username=[username]&password=[password]" -X POST http://[ip_du_serveur]
 ## Structures des données 
 
 ### Note
-``ts
+```ts
 class Note {
     note: number;
     bareme: number;
