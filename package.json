@@ -4,7 +4,7 @@
     "description": "parse note",
     "main": "dist/index.js",
     "scripts": {
-        "compil" : "tsc",
+        "compil": "tsc",
         "server": "node dist/index.js",
         "dev": "ts-node-dev src/index.ts"
     },
@@ -13,6 +13,7 @@
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.3",
+        "express-validator": "^6.14.0",
         "puppeteer": "^13.5.0"
     },
     "devDependencies": {

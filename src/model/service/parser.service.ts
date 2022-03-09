@@ -1,7 +1,7 @@
 import puppeteer, {ElementHandle} from "puppeteer";
-import {UE} from "../entiity/ue";
-import {Matiere} from "../entiity/matiere";
-import {Note} from "../entiity/note";
+import {UE} from "../entity/ue";
+import {Matiere} from "../entity/matiere";
+import {Note} from "../entity/note";
 
 
 export class ParserService {

@@ -7,7 +7,7 @@ Ce projet a pour but de parser la page des notes de l'application de note de l'E
 
 1.Compiler l'application avec :
 ```
-    npm run compil
+npm run compil
 ```
 2.Lancer l'application avec : 
 ```
@@ -15,7 +15,7 @@ npm run server
 ```
 3.Appeler l'api avec L'URL et les paramètres suivants :
 ```
-curl -d "username=[username]&password=[password]" -X POST http://[ip_du_serveur]:3000/getNote 
+curl -d "username=[username]&password=[password]" -X GET http://[ip_du_serveur]:3000/note/get-note 
 ```
 
 ## Structures des données 

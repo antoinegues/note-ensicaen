@@ -12,10 +12,15 @@ class App {
 
         this.app.listen(config.SERVER_PORT, () => {
             console.log(`LISTENING PORT : ${config.SERVER_PORT}`);
-            let noteController = new NoteController(this.app);
-            noteController.attach();
+            this.initController();
         });
     }
+
+    initController() {
+        console.log('CONTROLLER INIT');
+        new NoteController(this.app).attach();
+    }
+
 
 
 }
