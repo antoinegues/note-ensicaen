@@ -11,6 +11,7 @@ export class ParserService {
 
 
     static async getAuthCookie(login: string, password: string): Promise<any> {
+        console.log('CONNECTION ATTEMPT');
         const browser = await puppeteer.launch({args: ['--no-sandbox']});
         const page = await browser.newPage();
         await page.goto('https://scolarite.ensicaen.fr/login', {waitUntil: 'networkidle0'});
@@ -30,7 +31,8 @@ export class ParserService {
             throw new Error('Erreur Login');
         }
         browser.close();
-        return cookies[0];
+        console.log('CONNECTION SUCCESSFUL');
+        return cookies[0].value;
     }
 
     static async getNotes(token: string): Promise<UE[]> {

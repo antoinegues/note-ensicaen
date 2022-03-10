@@ -14,7 +14,7 @@ export class Note {
     parseNote(note: string | null) {
         if (note != null) {
             let noteSplit = note.split('/');
-            this.note = parseInt(noteSplit[0]);
+            this.note = parseFloat(noteSplit[0]);
             this.bareme = parseInt(noteSplit[1]);
         } else {
             this.note = 0;
