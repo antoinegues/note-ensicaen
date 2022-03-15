@@ -21,7 +21,7 @@ npm run dev
 ```
 
 
-### Récupérer le token
+## Récupérer le token
 
 **URL :**
 
