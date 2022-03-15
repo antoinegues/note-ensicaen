@@ -48,6 +48,12 @@ export abstract class Controller {
         }
     }
 
+    /**
+     * Gère les erreurs
+     * @param e
+     * @param response
+     * @private
+     */
     private static error(e: Error, response: Response) {
         const errorMessage = "Erreur : \n" + e.message;
         console.log(errorMessage);
