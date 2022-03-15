@@ -9,8 +9,11 @@ export abstract class Controller {
     constructor(private app: Express) {
     }
 
+    /**
+     * Crée les endpoints du service
+     *  /[nom_du_controller]/[nom_de_la_fonction]
+     */
     attach() {
-
         let methods = Object.getPrototypeOf(this);
         const name = this.constructor.name.replace('Controller', '');
         Object.getOwnPropertyNames(methods).forEach((methodName: string) => {
@@ -24,6 +27,13 @@ export abstract class Controller {
 
     }
 
+    /**
+     * Fonction qui est executé lors d'une requête sur un endpoint
+     * @param methodName
+     * @param request
+     * @param response
+     * @private
+     */
     private executeMethod(methodName: string, request: Request, response: Response) {
         try {
             // @ts-ignore

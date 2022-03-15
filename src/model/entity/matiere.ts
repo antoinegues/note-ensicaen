@@ -12,6 +12,10 @@ export class Matiere {
     }
 
 
+    /**
+     * Récupère le code de la matière
+     * @param name
+     */
     parseCode(name: string | null){
 
         if(name == null) {
@@ -27,7 +31,11 @@ export class Matiere {
         }
     }
 
-
+    /**
+     * Retire le code du nom de la matière
+     * @param name
+     * @private
+     */
     private cleanName(name: string | null) {
 
         if(name == null) {

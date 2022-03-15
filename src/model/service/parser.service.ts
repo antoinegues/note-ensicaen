@@ -9,7 +9,11 @@ export class ParserService {
 
     static LOGIN_COOKIE_NAME = '.AspNet.ApplicationCookie';
 
-
+    /**
+     * Recupère le cookie de connexion
+     * @param login
+     * @param password
+     */
     static async getAuthCookie(login: string, password: string): Promise<any> {
         console.log('CONNECTION ATTEMPT');
         const browser = await puppeteer.launch({args: ['--no-sandbox']});
@@ -35,6 +39,10 @@ export class ParserService {
         return cookies[0].value;
     }
 
+    /**
+     * Recupère les notes
+     * @param token
+     */
     static async getNotes(token: string): Promise<UE[]> {
 
         const browser = await puppeteer.launch();

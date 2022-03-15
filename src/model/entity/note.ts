@@ -11,6 +11,11 @@ export class Note {
         this.parseCoef(name);
     }
 
+
+    /**
+     * Recupère la note
+     * @param note
+     */
     parseNote(note: string | null) {
         if (note != null) {
             let noteSplit = note.split('/');
@@ -22,7 +27,11 @@ export class Note {
         }
     }
 
-
+    /**
+     * Enleve la note du nom
+     * @param name
+     * @private
+     */
     private clearName(name: string | null) {
         if (name == null) {
             this.name = 'NO NAME';
@@ -31,6 +40,11 @@ export class Note {
         this.name = name.replace(/ \(\d[.,]\d*%\)/g, '');
     }
 
+    /**
+     * Recupère le coef
+     * @param name
+     * @private
+     */
     private parseCoef(name: string | null): void {
         if (name == null) {
             this.coef = 1;

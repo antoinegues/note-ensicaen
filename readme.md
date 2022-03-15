@@ -1,56 +1,63 @@
-# Ensicaen note parser
+# ENSICAEN note parser
 
-Ce projet a pour but de parser la page des notes de l'application de note de l'ENSICAEN.
+Ce projet a pour but de parser la page des notes de l'application scolarité de l'ENSICAEN.
 
-
-## Utilisation
+## Production
 
 1.Compiler l'application avec :
 ```
 npm run compil
 ```
-2.Lancer l'application avec : 
+2.Lancer l'application avec :
 ```
 npm run server
 ```
-3.Appeler l'api avec L'URL et les paramètres suivants :
-```
-curl -d "username=[username]&password=[password]" -X GET http://[ip_du_serveur]:3000/note/get-note 
-```
 
-## Structures des données 
+## Mode développement
 
-### Note
-```ts
-class Note {
-    note: number;
-    bareme: number;
-    name: string;
-    coef: number;
-}
-```
-
-### Matière
-```ts
-class Matiere {
-    name: string;
-    code: string;
-    notes: Note[];
-}
-```
-
-### UE
-
-```ts
-class UE {
-    name: string;
-    matieres: Matiere[];
-}
-```
-
-### Mode développement 
-
-Lancer le serveur avec 
+Lancer le serveur avec
 ```
 npm run dev
+```
+
+
+### Récupérer le token
+
+**URL :**
+
+```
+/auth/get-login-token/
+```
+
+**PARAMS :**
+
+```
+username : Identifiant du compte
+password : Mot de passe du compte
+```
+
+**RESPONSE :** 
+
+```
+token : Token de connexion
+```
+
+## Récupérer les notes
+
+**URL :**
+
+```
+/note/get-note
+```
+
+**PARAMS :**
+
+```
+token : Token de connexion
+```
+
+**RESPONSE :**
+
+```
+ues : Tableau de classe "UE" qui contiennent les matières (classe 'Matiere') et les notes (classe 'Note')
 ```

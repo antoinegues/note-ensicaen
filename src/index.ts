@@ -9,6 +9,9 @@ class App {
 
     app!: Express;
 
+    /**
+     * Initialise le serveur express
+     */
     init() {
         this.app = express();
 
@@ -24,6 +27,9 @@ class App {
         });
     }
 
+    /**
+     * Initialise les controlleurs
+     */
     initController() {
         console.log('CONTROLLER INIT');
         new AuthController(this.app).attach();
