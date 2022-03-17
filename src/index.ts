@@ -3,6 +3,7 @@ import express,{Express} from "express";
 import config from './config.json'
 import {AuthController} from "./controller/auth-controller";
 import cors from 'cors'
+import serverless from 'serverless-http'
 
 class App {
 
@@ -25,6 +26,7 @@ class App {
             console.log(`LISTENING PORT : ${config.SERVER_PORT}`);
             this.initController();
         });
+        module.exports.handler = serverless(this.app);
     }
 
     /**

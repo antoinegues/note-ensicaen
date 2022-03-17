@@ -34,7 +34,7 @@ export class ParserService {
         if (cookies.length === 0) {
             throw new Error('Erreur Login');
         }
-        browser.close();
+        await browser.close();
         console.log('CONNECTION SUCCESSFUL');
         return cookies[0].value;
     }
