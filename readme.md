@@ -6,7 +6,7 @@ Ce projet a pour but de parser la page des notes de l'application scolarité de 
 
 1.Compiler l'application avec :
 ```
-npm run build
+npm run compil
 ```
 2.Lancer l'application avec :
 ```
