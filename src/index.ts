@@ -41,11 +41,6 @@ class App {
         const router = express.Router()
         new AuthController(router).attach();
         new NoteController(router).attach();
-        router.get('/', (req,res) => {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.write('<h1>Hello from Express.js!</h1>');
-            res.end();
-        })
         this.app.use('/.netlify/functions/server', router);
         module.exports = this.app;
         module.exports.handler = serverless(this.app);
