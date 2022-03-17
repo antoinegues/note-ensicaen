@@ -4,7 +4,7 @@
     "description": "parse note",
     "main": "dist/index.js",
     "scripts": {
-        "build": "tsc",
+        "build": "tsc && cp src/index.html dist",
         "server": "node dist/index.js",
         "dev": "ts-node-dev src/index.ts"
     },
