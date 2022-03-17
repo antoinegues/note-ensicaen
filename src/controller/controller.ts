@@ -6,7 +6,7 @@ import {ToolsService} from '../model/service/tools.service';
 export abstract class Controller {
 
 
-    constructor(private app: Router) {
+    constructor(private router: Router) {
     }
 
     /**
@@ -20,7 +20,7 @@ export abstract class Controller {
             if (methodName == 'constructor') {
                 return;
             }
-            this.app.post(
+            this.router.post(
                 '/' + name + '/' + ToolsService.toKebabCase(methodName), (request: Request, response: Response) => this.executeMethod(methodName, request, response)
             );
         });
