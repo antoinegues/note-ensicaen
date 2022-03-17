@@ -4,7 +4,7 @@
     "description": "parse note",
     "main": "dist/index.js",
     "scripts": {
-        "compil": "tsc",
+        "build": "tsc",
         "server": "node dist/index.js",
         "dev": "ts-node-dev src/index.ts"
     },
