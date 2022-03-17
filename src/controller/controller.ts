@@ -1,4 +1,4 @@
-import {Request, Response, Router} from "express";
+import {Express, Request, Response} from "express";
 import {RequestEC} from "../model/entity/network/requestEC";
 import {ToolsService} from '../model/service/tools.service';
 
@@ -6,7 +6,7 @@ import {ToolsService} from '../model/service/tools.service';
 export abstract class Controller {
 
 
-    constructor(private app: Router) {
+    constructor(private app: Express) {
     }
 
     /**
@@ -17,7 +17,7 @@ export abstract class Controller {
         let methods = Object.getPrototypeOf(this);
         const name = this.constructor.name.replace('Controller', '');
         Object.getOwnPropertyNames(methods).forEach((methodName: string) => {
-            if (methodName == 'constructor') {
+            if(methodName == 'constructor') {
                 return;
             }
             this.app.post(

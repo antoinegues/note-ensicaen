@@ -4,7 +4,6 @@ import config from './config.json'
 import {AuthController} from "./controller/auth-controller";
 import cors from 'cors'
 import serverless from 'serverless-http'
-import * as path from "path";
 
 class App {
 
@@ -27,10 +26,7 @@ class App {
             console.log(`LISTENING PORT : ${config.SERVER_PORT}`);
             this.initController();
         });
-
-        this.app.use('/', (req, res) => res.sendFile(path.join(__dirname, './index.html')));
-
-
+        module.exports.handler = serverless(this.app);
     }
 
     /**
@@ -38,12 +34,9 @@ class App {
      */
     initController() {
         console.log('CONTROLLER INIT');
-        const router = express.Router()
-        new AuthController(router).attach();
-        new NoteController(router).attach();
-        this.app.use('/.netlify/functions/server', router);
-        module.exports = app;
-        module.exports.handler = serverless(this.app);
+        new AuthController(this.app).attach();
+        new NoteController(this.app).attach();
+
     }
 
 
