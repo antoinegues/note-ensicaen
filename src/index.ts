@@ -42,7 +42,7 @@ class App {
         new AuthController(router).attach();
         new NoteController(router).attach();
         this.app.use('/.netlify/functions/server', router);
-        module.exports = this.app;
+        module.exports = app;
         module.exports.handler = serverless(this.app);
     }
 
